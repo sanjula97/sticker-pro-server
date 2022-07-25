@@ -1,11 +1,17 @@
 import express from 'express';
-// import data from './data.js';
+import cors from 'cors';
+import data from '../data.js';
 
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+}))
+
 // test
 app.get('/api/products', (req, res) => {
-  // res.send(data.products);
-  res.send('Hello World! babel')
+  res.send(data.products);
+  // res.send('Hello World! babel')
 });
 
 const port = process.env.PORT || 5001;
